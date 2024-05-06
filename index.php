@@ -40,20 +40,33 @@
 
     ];
 
-    foreach($hotels as $hotel){
-        echo $hotel['name'] ;
-    }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/aa1661fd5d.js" crossorigin="anonymous"></script>
     <title>PHP HOTEL</title>
 </head>
 <body>
-    <H1>HOTEL NEL COMUNE DI PHP</H1>
+    <H1 class="text-center">HOTEL NEL COMUNE DI PHP</H1>
+    <ul class="d-flex">
+        <?php foreach($hotels as $hotel) { ?>
+            <li>
+                <h2><?php echo $hotel['name'];?></h2>
+                <p><?php echo $hotel['description'];?></p>
+                <?php if($hotel['parking']===false){ ?>
+                    <i class="fa-solid fa-xmark text-danger"></i>
+                  
+               <?php }
+                elseif($hotel['parking']===true) { ?>
+                   <i  class="fa-solid fa-check text-primary"></i>
+              <?php } ?>
+            </li>
+        <?php } ?>
+    </ul>
 
 </body>
 </html>
