@@ -52,18 +52,29 @@
 </head>
 <body>
     <H1 class="text-center">HOTEL NEL COMUNE DI PHP</H1>
-    <ul class="d-flex">
+    <ul class="d-flex flex-column list-unstyled mx-2">
         <?php foreach($hotels as $hotel) { ?>
-            <li>
-                <h2><?php echo $hotel['name'];?></h2>
-                <p><?php echo $hotel['description'];?></p>
+            <li class="mt-2" >
+                <h2 class="mb-0"><?php echo $hotel['name'];?></h2>
+                <p class="mb-0"><?php echo $hotel['description'];?></p>
                 <?php if($hotel['parking']===false){ ?>
-                    <i class="fa-solid fa-xmark text-danger"></i>
+                   Parcheggio: <i class="fa-solid fa-xmark text-danger"></i>
                   
                <?php }
                 elseif($hotel['parking']===true) { ?>
-                   <i  class="fa-solid fa-check text-primary"></i>
+                   Parcheggio: <i  class="fa-solid fa-check text-primary"></i>
               <?php } ?>
+              <div>
+                <strong class="text-warning">
+                    voti:
+                   <?php echo $hotel['vote'] ?>
+                </strong>
+              </div>
+              <div>
+                <?php echo $hotel['distance_to_center'] ?>
+                Km
+              </div>
+              
             </li>
         <?php } ?>
     </ul>
